@@ -9,6 +9,7 @@
     @import url("<?php bloginfo('stylesheet_url'); ?>");
 </style>
 
+<script src="<?php bloginfo('template_url'); ?>/main.js"></script>
 <script>
     // TODO: Javascript
 </script>
