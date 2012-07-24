@@ -1,0 +1,80 @@
+
+@import "tmlib.less";
+
+/*
+ * base
+ */
+* {
+  margin: 0px;
+  padding: 0px;
+  
+  #tm .box-sizing(border-box);
+}
+
+body {
+  background-color: black;
+  
+  font-family: "Meiryo", "メイリオ", "ヒラギノ角ゴ Pro W3", sans-serif;
+  font-size: 14px;
+  line-height: 1.5em;
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: hsl(267, 85%, 43%);
+  }
+}
+
+/*
+ * header
+ */
+#header{
+  width: 100%;
+  background-color: black;
+  background-image: url(images/bg.jpg);
+  background-size: 1200px;
+  background-repeat: no-repeat;
+  
+  hgroup {
+    margin: 0px auto;
+    padding-top: 50px;
+    width: 1200px;
+    height: 200px;
+    color: white;
+    
+    h1 {
+      -webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.4, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8)) );
+      
+      a {
+        font-size: 35px;
+        font-style: italic;
+        color: white;
+        text-shadow: 2px 2px 2px #aaa;
+      }
+    }
+    
+    h2 {
+      margin-top: 40px;
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  }
+}
+
+
+/*
+ * nav
+ */
+#nav {
+  #tm .oily-filter(rgba(100, 100, 100, 0.5));
+}
+
+
+/*
+ * contents
+ */
+#contents {
+  background-color: hsl(240, 10%, 95%);
+}

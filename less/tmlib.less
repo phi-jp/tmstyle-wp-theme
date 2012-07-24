@@ -1,0 +1,60 @@
+/*
+ * library
+ */
+#tm {
+  .clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+      display: table;
+      content: "";
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  
+  .size(@size) {
+    width: @size;
+    height: @size;
+  }
+  
+  .size(@width, @height) {
+    width: @width;
+    height: @height;
+  }
+  
+  .box-shadow(@value) {
+    -webkit-box-shadow: @value;
+       -moz-box-shadow: @value;
+         -o-box-shadow: @value;
+            box-shadow: @value;
+  }
+  
+  .box-sizing(@value) {
+    -webkit-box-sizing: @value;
+       -moz-box-sizing: @value;
+         -o-box-sizing: @value;
+            box-sizing: @value;
+  }
+  
+  .linear-gradient(@args) {
+    background: -webkit-linear-gradient(@arguments);
+    background:    -moz-linear-gradient(@arguments);
+    background:      -o-linear-gradient(@arguments);
+    background:     -ms-linear-gradient(@arguments);
+    background:         linear-gradient(@arguments);
+  }
+  
+  .oily-filter(@color) {
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 51%, rgba(255, 255, 255, 0.2) 100%), @color;
+    
+    .menu-top-menu-container {
+      margin: 0px auto;
+      width: 1200px;
+    }
+  }
+}
+
+
+
