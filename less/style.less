@@ -1,6 +1,31 @@
 
 @import "tmlib.less";
 
+
+/*
+ * font
+ */
+/*
+@font-face {
+  font-family: "WebSymbolsRegular";
+  src: url('../font/websymbols-regular-webfont.ttf');
+}
+*/
+
+@font-face {
+  font-family: "ModernPictogramsNormal";
+  src: url('../font/modern-pictograms/modernpics-webfont.eot');
+  src: url('../font/modern-pictograms/modernpics-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../font/modern-pictograms/modernpics-webfont.woff') format('woff'),
+       url('../font/modern-pictograms/modernpics-webfont.ttf') format('truetype'),
+       url('../font/modern-pictograms/modernpics-webfont.svg#ModernPictogramsNormal') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
 /*
  * base
  */
@@ -15,7 +40,7 @@ body {
   background-color: black;
   
   font-family: "Meiryo", "メイリオ", "ヒラギノ角ゴ Pro W3", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5em;
   
   a {
@@ -137,14 +162,158 @@ body {
   width: 800px;
 }
 
+.entry {
+  margin: 10px 0px 20px;
+  padding-bottom: 40px;
+  line-height: 1.7em;
+  color: #222;
+  
+  h1 {
+    @font-color: #444;
+    @font-size: 25px;
+    @font-color: hsl(220, 80%, 50%);
+    @text-shadow-color: #aaf;
+    
+    margin: 1em 0em;
+    border-bottom: 2.5px solid hsl(220, 80%, 50%);
+    font-size: 30px;
+    text-shadow: 2px 2px 4px @text-shadow-color;
+    line-height: 1.3em;
+    color: @font-color;
+    
+    a {
+      color: @font-color;
+    }
+    
+    &:before {
+      content: '*';
+      display: inline-block;
+      position: relative;
+      margin-right: -1em;
+      left: -25px;
+      top: -20px;
+      color: yellow;
+      font-size: 25px;
+      font-family: "ModernPictogramsNormal";
+      text-shadow: 1px 1px 2px #666;
+      
+      #tm .transition(500ms);
+      #tm .rotate(45deg);
+    }
+    
+    
+    &:hover {
+      &:before {
+        color: red;
+        #tm .rotate(360deg);
+      }
+    }
+  }
+  
+  h2 {
+    @font-color: #444;
+    
+    margin: 1.5em 0px 1.0em;
+    border-bottom: solid 1px hsl(20, 80%, 50%); 
+    font-size: 18px;
+    color: hsl(20, 80%, 50%);
+    // color: @font-color;
+    line-height: 1.5em;
+    
+    
+    &:before {
+      content: "e";
+      font-size: 30px;
+      padding-right: 5px;
+      font-family: "ModernPictogramsNormal";
+    }
+  }
+  
+  h3 {
+    margin: 0.5em 0px;
+    font-size: 16px;
+    color: hsl(120, 50%, 50%);
+    line-height: 1.3em;
+    
+    &:before {
+      content: '>';
+      padding-right: 5px;
+      font-size: 24px;
+      font-family: "ModernPictogramsNormal";
+    }
+  }
+  
+  h4 {
+    margin: 1.3em 0px;
+  }
+  
+  p {
+    margin-bottom: 1.5em;
+  }
+  
+  .demo, .download, .github, .jsdoit {
+    font-size: 22px;
+    padding-right: 30px;
+    text-shadow: 1px 1px 2px hsl(0, 0%, 64%);
+    
+    #tm .transition(500ms);
+    
+    &:hover {
+      font-size: 30px;
+    }
+
+  }
+  
+  .demo {
+    color: hsl(220, 80%, 50%);
+    &:before {
+      content: 'E';
+      font-size: 30px;
+      padding-right: 5px;
+      font-family: "ModernPictogramsNormal";
+    }
+  }
+  
+  .download {
+    color: hsl(320, 80%, 50%);
+    &:before {
+      content: 'D';
+      font-size: 30px;
+      padding-right: 5px;
+      font-family: "ModernPictogramsNormal";
+    }
+  }
+  
+  .github {
+    color: hsl(70, 80%, 50%);
+    &:before {
+      content: ')';
+      font-size: 30px;
+      padding-right: 5px;
+      font-family: "ModernPictogramsNormal";
+    }
+  }
+  
+  .jsdoit {
+    color: hsl(520, 80%, 50%);
+    &:before {
+      content: '(';
+      font-size: 30px;
+      padding-right: 5px;
+      font-family: "ModernPictogramsNormal";
+    }
+  }
+}
+
+
+/*
+ * side
+ */
 #side {
     float: right;
     padding: 10px;
     width: 300px;
 }
-
-
-
 
 
 /*
