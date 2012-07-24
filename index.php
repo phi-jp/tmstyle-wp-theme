@@ -1,129 +1,103 @@
 <!DOCTYPE html>
 
 <html>
-    
     <head>
         <?php get_template_part('head'); ?>
     </head>
     
     <body>
         <?php get_header(); ?>
-        
-        <div id="content">
-            
-            <!-- #articles start -->
-            <section id="articles" class="home">
+        <div id="contents">
+            <div id="main" class="clearfix">
                 
-                <!-- パンくず start -->
-                <?php if(is_month()): ?>
-                <h2>DATE : <?php single_month_title(); ?></h2>
-                <?php elseif(is_archive()): ?>
-                <h2>CATEGORY : <?php single_cat_title(); ?></h2>
-                <?php else: ?>
-                <h2 style="display:none;">Home</h2>
-                <?php endif; ?>
-                <!-- パンくず end -->
+                <?php get_template_part('breadcrumb'); ?>
                 
-                <!-- .entry start -->
-                <?php if(have_posts()): while(have_posts()): the_post(); ?>
-                <article id="entry<?php the_id(); ?>" class="entry">
+                <section id="articles" class="hide">
+                    <!--<h1>Home</h1>-->
                     
-                    <?php if (is_single()): ?>
-                    <script>
-                        var Entry = {};
-                        Entry.element = document.getElementById("entry<?php the_id(); ?>");
-                    </script>
-                    <?php endif; ?>
-                    
-                    <header>
-                        <h1>
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        </h1>
-                    </header>
-                    
-                    <div class='content'>
-                        <?php the_content('Read More'); ?>
-                        <div class="clear"></div>
-                    </div>
-                    
-                    <footer>
-                        <div class="category">
-                            Category : <?php the_category(', '); ?>
-                        </div>
-                        
-                        <div class="tag">
-                            <?php
-                            $tags_list = get_the_tag_list('', ', ');
-                            if ($tags_list):
-                            ?>
-                            <span>Tag : </span>
-                            <a href="#">
-                                <?php echo $tags_list; ?>
-                            </a>
-                            <?php endif; ?>
-                        </div>
-                        
-                        <?php edit_post_link('Edit', '<div class="edit"><span>', '</span></div>'); ?>
-                        <time>
-                        <?php the_date("Y年n月j日 l"); ?>
-                        </time>
-                        
+                    <?php if(have_posts()): while(have_posts()): the_post(); ?>
+                    <article id="entry-<?php the_id(); ?>" class="entry">
                         
                         <?php if (is_single()): ?>
-                        <div class="post-links">
-                            <p><?php previous_post_link('<< %link '); ?></p>
-                            <p><a href="http://tmlife.net">Home</a></p>
-                            <p><?php next_post_link(' %link >>'); ?></p>
-                        </div>
+                        <script>
+                            var Entry = {};
+                            Entry.element = document.getElementById("entry-<?php the_id(); ?>");
+                        </script>
                         <?php endif; ?>
                         
-                    </footer>
-                                        
-                </article>
+                        <header>
+                            <h1>
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </h1>
+                            
+                            <nav class="blog-info">
+                                <ul class="clearfix">
+                                    <li class="date"><?php the_time('Y.m.d'); ?></li>
+                                    <li class="cat"><?php the_category(', '); ?></li>
+                                    <li class="tag"><?php the_tags('', ', '); ?></li>
+                                </ul>
+                            </nav>
+                        </header>
+                        
+                        <div class="content">
+                            <?php the_content('Read More'); ?>
+                        </div>
+                        
+                        <footer>
+                            <?php edit_post_link('Edit', '<div class="edit"><span>', '</span></div>'); ?>
+                            
+                            <?php if (is_single()): ?>
+                            <style>
+                                .entry-links {
+                                    margin: 40px 0px;
+                                    padding: 20px 5px;
+                                    border-top: double 4px black;
+                                    border-bottom: double 4px black;
+                                }
+                                
+                                .entry-links .left-entry-link {
+                                    float: left;
+                                    width: 40%;
+                                    text-align: right;
+                                }
+                                .entry-links .center-entry-link {
+                                    float: left;
+                                    width: 20%;
+                                    text-align: center;
+                                }
+                                .entry-links .right-entry-link {
+                                    float: right;
+                                    width: 40%;
+                                    text-align: left;
+                                }
+                            </style>
+                            <div class="entry-links clearfix">
+                                <p class="left-entry-link"><?php previous_post_link('<< %link '); ?></p>
+                                <p class="center-entry-link"><a href="<?php echo home_url(); ?>">Home</a></p>
+                                <p class="right-entry-link"><?php next_post_link(' %link >>'); ?></p>
+                            </div>
+                            <?php endif; ?>
+                        </footer>
+                        
+                        
+                    </article>
+                    
+                    <?php comments_template(); ?>
+                    
+                    <?php endwhile; endif; ?>
+                    
+                    <?php get_template_part('page-nav'); ?>
+                    
+                </section>
                 
-                <!-- start sidebar -->
-                <?php comments_template(); ?>
-                <!-- end sidebar -->
-                
-                <?php endwhile; endif; ?>
-                <!-- .entry end -->
-                
-                
-                <!-- start page navi -->
-                <div class="pagenavi">
-                <?php global $wp_rewrite;
-                $paginate_base = get_pagenum_link(1);
-                if (strpos($paginate_base, '?') || ! $wp_rewrite->using_permalinks()) {
-                    $paginate_format = '';
-                    $paginate_base = add_query_arg('paged', '%#%');
-                } else {
-                    $paginate_format = (substr($paginate_base, -1 ,1) == '/' ? '' : '/') .
-                    user_trailingslashit('page/%#%/', 'paged');;
-                    $paginate_base .= '%_%';
-                }
-                echo paginate_links( array(
-                    'base' => $paginate_base,
-                    'format' => $paginate_format,
-                    'total' => $wp_query->max_num_pages,
-                    'mid_size' => 5,
-                    'current' => ($paged ? $paged : 1),
-                    'prev_text' => ("<< Prev"),
-                    'next_text' => ("Next >>"),
-                ));
-                ?>
-                </div>
-                <!-- end page navi -->
-                
-            </section>
-            <!-- #articles end -->
-            
-            <!-- start sidebar -->
-            <?php get_sidebar(); ?>
-            <!-- end sidebar -->
-            
+                <aside id="side">
+                    <!--<h1>Side</h1>-->
+                    <?php dynamic_sidebar('side-widget'); ?>
+                </aside>
+            </div>
         </div>
-        
         <?php get_footer(); ?>
+        
+        <?php wp_footer(); ?>
     </body>
-    
-<html>
+</html>
