@@ -38,6 +38,13 @@
             box-sizing: @value;
   }
   
+  .transition(@value) {
+    -webkit-transition: @value;
+       -moz-transition: @value;
+         -o-transition: @value;
+            transition: @value;
+  }
+  
   .linear-gradient(@args) {
     background: -webkit-linear-gradient(@arguments);
     background:    -moz-linear-gradient(@arguments);

@@ -69,6 +69,46 @@ body {
  */
 #nav {
   #tm .oily-filter(rgba(100, 100, 100, 0.5));
+  
+  ul {
+    margin: 0px auto;
+    width: 1200px;
+    height: 40px;
+    list-style: none;
+    
+    li {
+      display: inline-block;
+      width: 120px;
+      height: 40px;
+      text-align: center;
+      border-left: 1px solid rgb(190, 190, 190);
+      
+      &:last-child {
+        border-right: 1px solid rgb(190, 190, 190);
+      }
+      
+      // inline-block の隙間解消
+      // <http://coliss.com/articles/build-websites/operation/css/css-tutorial-space-between-inline-block-elements-by-css-tricks.html>
+      margin-right: -4px;
+      
+      a {
+        display: block;
+        width: 120px;
+        height: 40px;
+        border-left: 1px solid #777;
+        
+        line-height: 40px;
+        color: white;
+        
+        #tm .transition(250ms);
+        
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0px 0px 8px 0px white;
+        }
+      }
+    }
+  }
 }
 
 
