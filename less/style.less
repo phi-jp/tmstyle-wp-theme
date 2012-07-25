@@ -1,6 +1,5 @@
 
 @import "tmlib.less";
-@import "../font/fontello/css/fontello.css";
 
 
 /*
@@ -32,6 +31,22 @@
 
 
 /*
+ * constant
+ */
+@key-color: #fff;
+@font-size: 13px;
+
+@icon-star: '\2605';  // '★'
+@icon-github: '';    // 
+@icon-eye-1: '';     //
+@icon-download: '📥';
+@icon-wrench-2: '🔧';
+@icon-pencil-alt-1: '\E903';
+@icon-right-circle: '';
+@icon-right-dir-1: '▸';
+
+
+/*  
  * base
  */
 * {
@@ -45,15 +60,16 @@ body {
   background-color: black;
   
   font-family: "Meiryo", "メイリオ", "ヒラギノ角ゴ Pro W3", sans-serif;
-  font-size: 13px;
+  font-size: @font-size;
   line-height: 1.5em;
   
   a {
     text-decoration: none;
+    color: hsl(220, 100%, 50%);
   }
   
   a:visited {
-    color: hsl(267, 85%, 43%);
+    color: hsl(260, 90%, 50%);
   }
 }
 
@@ -191,7 +207,7 @@ body {
     }
     
     &:before {
-      content: '*';
+      content: @icon-star;
       display: inline-block;
       position: relative;
       margin-right: -1em;
@@ -199,7 +215,7 @@ body {
       top: -20px;
       color: yellow;
       font-size: 25px;
-      font-family: "ModernPictogramsNormal";
+      font-family: "fontello";
       text-shadow: 1px 1px 2px #666;
       
       #tm .transition(500ms);
@@ -227,24 +243,24 @@ body {
     
     
     &:before {
-      content: "e";
+      content: @icon-pencil-alt-1;
       font-size: 30px;
       padding-right: 5px;
-      font-family: "ModernPictogramsNormal";
+      font-family: "fontello";
     }
   }
   
   h3 {
     margin: 0.5em 0px;
-    font-size: 16px;
+    font-size: 15px;
     color: hsl(120, 50%, 50%);
     line-height: 1.3em;
     
     &:before {
-      content: '>';
+      content: @icon-right-circle;
       padding-right: 5px;
-      font-size: 24px;
-      font-family: "ModernPictogramsNormal";
+      font-size: 22px;
+      font-family: "fontello";
     }
   }
   
@@ -252,21 +268,111 @@ body {
     margin: 1.3em 0px;
   }
   
-  p {
-    margin-bottom: 1.5em;
+  
+  .blog-info {
+    
+  }
+  
+  .content {
+  
+    p, ol, ul, div, pre {
+      margin-bottom: 1.5em;
+    }
+    
+    ul, ol {
+      padding-left: 30px;
+    }
+    
+    img {
+      max-width: 640px;
+      padding: 5px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      
+      #tm .transition(1s);
+      
+      &:hover {
+        box-shadow: 0px 0px 16px #aaf;
+      }
+    }
+    
+    table {
+      margin-bottom: 1.5em;
+      border-collapse: separate;
+      border-spacing: 2px;
+      
+      tr {
+        &:nth-child(odd) {
+          background-color: hsl(216, 100%, 95%);
+        }
+      }
+      
+      th {
+        padding: 5px 10px;
+        color: white;
+        background-color: hsl(220, 90%, 70%);
+      }
+      
+      td {
+        padding: 5px 10px;
+        border: solid 1px hsl(0, 0%, 90%);
+      }
+      
+    }
+    
+    p {
+      a {
+        #tm .transition(200ms);
+      }
+      
+      &:hover {
+        a {
+          font-style: italic;
+          text-shadow: 0px 0px 4px hsl(230, 100%, 70%);
+          text-decoration: underline;
+        }
+      }
+    }
+    
+    dl {
+      dt {
+        margin: 1.5em 0 0.5em;
+        padding-left: 5px;
+        border-bottom: 1px dotted #aaa;
+        font-weight: bold;
+      }
+      
+      dd {
+        margin: 0.0em 1.0em;
+        padding: 8px;
+        // background-color: hsla(210, 100%, 98%, 1.0);
+        // border-left: 4px solid #000;
+        // border-left-color: hsla(220, 100%, 70%, 1.0);
+      }
+    }
+    
+    blockquote {
+      background-color: hsla(0, 0%, 98%, 1);
+      border-left: 5px solid hsl(200, 50%, 88%);
+      margin-left: 5px;
+      padding-left: 15px;
+    }
+    
   }
   
   .demo, .download, .github, .jsdoit {
+    display: inline-block;
     font-size: 22px;
-    padding-right: 30px;
+    padding: 10px 20px;
+    //padding-right: 30px;
     text-shadow: 1px 1px 2px hsl(0, 0%, 64%);
     
-    #tm .transition(500ms);
+    #tm .transition(1s);
     
     &:hover {
       font-size: 30px;
     }
-
+    
   }
   
   .demo {
@@ -276,6 +382,9 @@ body {
       font-size: 30px;
       padding-right: 5px;
       font-family: "ModernPictogramsNormal";
+      
+      content: @icon-eye-1;
+      font-family: "fontello";
     }
   }
   
@@ -286,6 +395,9 @@ body {
       font-size: 30px;
       padding-right: 5px;
       font-family: "ModernPictogramsNormal";
+      
+      content: @icon-download;
+      font-family: "fontello";
     }
   }
   
@@ -296,6 +408,9 @@ body {
       font-size: 30px;
       padding-right: 5px;
       font-family: "ModernPictogramsNormal";
+      
+      content: @icon-github;
+      font-family: "fontello";
     }
   }
   
@@ -306,6 +421,9 @@ body {
       font-size: 30px;
       padding-right: 5px;
       font-family: "ModernPictogramsNormal";
+      
+      content: @icon-wrench-2;
+      font-family: "fontello";
     }
   }
 }
@@ -377,7 +495,9 @@ body {
 
 
 
-
+.center {
+    text-align: center;
+}
 
 
 
