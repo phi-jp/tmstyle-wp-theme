@@ -15,11 +15,17 @@
     // TODO: Javascript
 </script>
 
-<!-- less -->
+<!-- css start -->
+<!--
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/style.css" />
+-->
+<!-- css end -->
+
+<!-- less start -->
 <link rel="stylesheet/less" type="text/css" href="<?php bloginfo('template_url'); ?>/less/tmlib.less" />
 <link rel="stylesheet/less" type="text/css" href="<?php bloginfo('template_url'); ?>/less/style.less" />
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/plugins/less/less-1.3.0.min.js"></script>
-<!-- less -->
+<!-- less end -->
 
 <!-- prettify -->
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/plugins/prettify/prettify.css" />
