@@ -47,7 +47,7 @@ body {
     margin: 0px auto;
     padding-top: 50px;
     width: 1200px;
-    height: 200px;
+    height: 180px;
     color: white;
     
     h1 {
@@ -65,6 +65,58 @@ body {
       margin-top: 40px;
       margin-left: 10px;
       font-size: 14px;
+    }
+  }
+  
+  .links {
+    margin: 20px auto;
+    width: 1200px;
+    height: 60px;
+    text-align: right;
+    
+    // 下揃え対策
+    position: relative;
+    
+    ul {
+      // 下揃え対策
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      
+      li {
+        margin-right: 10px;
+        display: inline-block;
+        a {
+          font-size: 40px;
+          font-family: "fontello";
+          color: white;
+          line-height: 60px;
+          text-shadow: 0px 0px 4px #fff;
+          
+          #tm .transition(500ms);
+          
+          &:hover {
+            font-size: 65px;
+            
+            &.github {
+              color: hsl(120, 0%, 50%);
+            }
+            
+            &.twitter {
+              color: hsl(240, 90%, 80%);
+            }
+            
+            &.rss {
+              color: hsl(20, 90%, 80%);
+            }
+            
+            &.gplus {
+              color: hsl(0, 90%, 80%);
+            }
+          }
+          
+        }
+      }
     }
   }
 }
@@ -225,6 +277,8 @@ body {
   
   h4 {
     margin: 1.3em 0px;
+    border-left: 4px solid hsl(0, 0%, 80%);
+    padding-left: 5px;
   }
   
   
@@ -402,24 +456,23 @@ body {
   
   .demo, .download, .github, .jsdoit {
     display: inline-block;
-    font-size: 22px;
-    padding: 10px 20px;
-    //padding-right: 30px;
+    font-size: 20px;
+    //padding: 10px 20px;
+    margin-bottom: 15px;
     text-shadow: 1px 1px 2px hsl(0, 0%, 64%);
     
     #tm .transition(1s);
     
     &:hover {
-      font-size: 30px;
+      //font-size: 30px;
     }
-    
   }
   
   .demo {
     color: hsl(220, 80%, 50%);
     &:before {
       content: 'E';
-      font-size: 30px;
+      font-size: 25px;
       padding-right: 5px;
       
       content: @icon-eye-1;
@@ -431,7 +484,7 @@ body {
     color: hsl(320, 80%, 50%);
     &:before {
       content: 'D';
-      font-size: 30px;
+      font-size: 25px;
       padding-right: 5px;
       
       content: @icon-download;
@@ -443,7 +496,7 @@ body {
     color: hsl(70, 80%, 50%);
     &:before {
       content: ')';
-      font-size: 30px;
+      font-size: 25px;
       padding-right: 5px;
       
       content: @icon-github;
@@ -455,7 +508,19 @@ body {
     color: hsl(520, 80%, 50%);
     &:before {
       content: '(';
-      font-size: 30px;
+      font-size: 25px;
+      padding-right: 5px;
+      
+      content: @icon-wrench-2;
+      font-family: "fontello";
+    }
+  }
+  
+  .document {
+    color: hsl(120, 80%, 50%);
+    &:before {
+      content: '(';
+      font-size: 25px;
       padding-right: 5px;
       
       content: @icon-wrench-2;
