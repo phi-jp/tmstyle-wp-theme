@@ -47,34 +47,10 @@
                             <?php edit_post_link('Edit', '<div class="edit"><span>', '</span></div>'); ?>
                             
                             <?php if (is_single()): ?>
-                            <style>
-                                .entry-links {
-                                    margin: 40px 0px;
-                                    padding: 20px 5px;
-                                    border-top: double 4px black;
-                                    border-bottom: double 4px black;
-                                }
-                                
-                                .entry-links .left-entry-link {
-                                    float: left;
-                                    width: 40%;
-                                    text-align: right;
-                                }
-                                .entry-links .center-entry-link {
-                                    float: left;
-                                    width: 20%;
-                                    text-align: center;
-                                }
-                                .entry-links .right-entry-link {
-                                    float: right;
-                                    width: 40%;
-                                    text-align: left;
-                                }
-                            </style>
                             <div class="entry-links clearfix">
-                                <p class="left-entry-link"><?php previous_post_link('<< %link '); ?></p>
+                                <p class="left-entry-link"><?php previous_post_link('%link '); ?></p>
                                 <p class="center-entry-link"><a href="<?php echo home_url(); ?>">Home</a></p>
-                                <p class="right-entry-link"><?php next_post_link(' %link >>'); ?></p>
+                                <p class="right-entry-link"><?php next_post_link(' %link'); ?></p>
                             </div>
                             <?php endif; ?>
                         </footer>

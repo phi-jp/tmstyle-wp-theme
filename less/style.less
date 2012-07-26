@@ -361,6 +361,45 @@ body {
     
   }
   
+  .entry-links {
+    #tm .clearfix;
+    
+    margin: 40px 0px;
+    padding: 20px 5px;
+    border-top: double 4px black;
+    border-bottom: double 4px black;
+    
+    .left-entry-link {
+      float: left;
+      width: 40%;
+      text-align: right;
+      
+      &:before {
+        content: @icon-reply;
+        font-family: "fontello";
+        padding-right: 5px;
+      }
+    }
+    
+    .center-entry-link {
+      float: left;
+      width: 20%;
+      text-align: center;
+    }
+    
+    .right-entry-link {
+      float: right;
+      width: 40%;
+      text-align: left;
+      
+      &:after {
+        content: @icon-forward;
+        font-family: "fontello";
+        padding-left: 5px;
+      }
+    }
+  }
+  
   .demo, .download, .github, .jsdoit {
     display: inline-block;
     font-size: 22px;
@@ -606,6 +645,7 @@ body {
       }
     }
   }
+  
 }
 
 
