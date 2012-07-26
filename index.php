@@ -12,7 +12,7 @@
                 
                 <?php get_template_part('breadcrumb'); ?>
                 
-                <section id="articles" class="hide">
+                <section id="articles">
                     <!--<h1>Home</h1>-->
                     
                     <?php if(have_posts()): while(have_posts()): the_post(); ?>
