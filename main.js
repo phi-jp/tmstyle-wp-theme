@@ -20,7 +20,12 @@ window.addEventListener("load", function(){
 }, false);
 
 
-
+/*
+ * scroller
+ */
+window.addEventListener("load", function() {
+    tm.Scroller.setup();
+}, false);
 
 
 /*

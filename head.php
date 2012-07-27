@@ -32,6 +32,9 @@
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/plugins/prettify/prettify.js"></script>
 <!-- prettify -->
 
+<!-- tm scroller -->
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/plugins/tmlib/tm.scroller.js"></script>
+<!-- tm scroller -->
 
 <!--[if IE]>
 <style>

@@ -302,6 +302,7 @@ body {
           font-size: 20px;
           padding-right: 5px;
           font-family: "fontello";
+          text-shadow: 0px 0px 2px #222;
         }
         
         &.date {
@@ -312,7 +313,7 @@ body {
         }        
         &.cat {
           &:before {
-            color: hsl(60, 50%, 50%);
+            color: hsl(60, 80%, 50%);
             content: @icon-folder;
           }
         }        
@@ -413,6 +414,65 @@ body {
       padding-left: 15px;
     }
     
+    // 目次(table of contents)
+    #toc {
+      
+      @font-color: hsl(0, 0%, 50%);
+      
+      margin: 1.5em 0px 1.0em;
+      border-bottom: solid 0px hsl(20, 80%, 50%); 
+      font-size: 15px;
+      color: @font-color;
+      line-height: 1.5em;
+      
+      &:before {
+        content: @icon-feather;
+        font-family: "fontello";
+        font-size: 25px;
+      }
+      
+      &:before {
+        padding-right: 5px;
+      }
+      
+      &:after {
+        padding-left: 5px;
+      }
+      
+      &+ul, &+ol {
+        list-style: none;
+        
+        li {
+          font-size: 12px;
+          
+          a {
+            border-bottom: 1px dotted #aaa;
+          }
+          
+          &:before {
+            content: @icon-down-open-1;
+            font-family: "fontello";
+            padding-right: 5px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    
+    a[href="#toc"] {
+      display: inline-block;
+      width: 100%;
+      padding-right: 5px;
+      font-size: 14px;
+      text-align: right;
+      
+      &:before {
+        content: @icon-up-open-1;
+        font-family: "fontello";
+        font-size: 18px;
+        padding-right: 5px;
+      }
+    }
   }
   
   .entry-links {
@@ -456,8 +516,9 @@ body {
   
   .demo, .download, .github, .jsdoit {
     display: inline-block;
-    font-size: 20px;
+    font-size: 18px;
     //padding: 10px 20px;
+    margin: 0px 5px;
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px hsl(0, 0%, 64%);
     
