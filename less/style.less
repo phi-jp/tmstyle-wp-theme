@@ -126,6 +126,7 @@ body {
  * nav
  */
 #nav {
+  background: rgba(200, 200, 200, 0.5);
   #tm .oily-filter(rgba(100, 100, 100, 0.5));
   
   ul {
@@ -254,8 +255,8 @@ body {
     
     
     &:before {
-      content: @icon-pencil-alt-1;
-      font-size: 30px;
+      content: @icon-pencil-4;
+      font-size: 27px;
       padding-right: 5px;
       font-family: "fontello";
     }
@@ -328,7 +329,9 @@ body {
   }
   
   .content {
-  
+    
+    #tm .clearfix;
+    
     p, ol, ul, div, pre {
       margin-bottom: 1.5em;
     }
@@ -473,6 +476,31 @@ body {
         padding-right: 5px;
       }
     }
+    
+    
+    .more-link {
+      float: right;
+      padding: 5px 10px;
+      margin: 0px 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 2px #aaa;
+      #tm .oily-filter(rgba(200, 200, 220, 0.5));
+      
+      #tm .transition(200ms);
+      
+      &:hover {
+        box-shadow: 0px 0px 2px #aaa,0px 0px 8px #88f;
+      }
+      
+      &:after {
+        content: @icon-right-open @icon-right-open;
+        font-family: "fontello";
+        font-size: 16px;
+        padding-left: 5px;
+      }
+      
+    }
+    
   }
   
   .entry-links {
