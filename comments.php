@@ -89,14 +89,6 @@
 </section>
 <?php endif; ?>
 
-<?php if(have_comments()): ?>
-<section id="comments">
-    <h1>COMMENT</h1>
-    <ul id="comment-list">
-        <?php wp_list_comments(); ?>
-    </ul>
-</section>
-<?php endif; ?>
 
 <?php if(pings_open()): ?>
 <section id="track-back-url">
@@ -107,6 +99,7 @@
 </section>
 <?php endif; ?>
 
+
 <section id="comment-form">
     <?php
     comment_form(array(
@@ -114,6 +107,16 @@
     ));
     ?>
 </section>
+
+
+<?php if(have_comments()): ?>
+<section id="comments">
+    <h1>COMMENT</h1>
+    <ul id="comment-list">
+        <?php wp_list_comments(); ?>
+    </ul>
+</section>
+<?php endif; ?>
 
 
 
