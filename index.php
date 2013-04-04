@@ -40,6 +40,9 @@
                         </header>
                         
                         <div class="content">
+                            <p style="float:left; margin-right:15px">
+                                <?php the_post_thumbnail( array(400,400) ); ?>
+                            </p>
                             <?php the_content('Read More'); ?>
                         </div>
                         

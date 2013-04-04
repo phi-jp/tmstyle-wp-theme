@@ -11,6 +11,11 @@ function setup_theme()
      *  rss setting
      */
     add_theme_support('automatic-feed-links');
+
+    /**
+     * support eye cache
+     */
+    add_theme_support('post-thumbnails');
     
     /**
      * nav menu
