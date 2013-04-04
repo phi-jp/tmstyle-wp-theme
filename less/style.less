@@ -11,6 +11,20 @@
 @main-width: 720px;
 @side-width: 300px;
 
+@contents-bg-image: "carbon_fibre.png";
+@contents-bg-image: "padded.png";
+@contents-bg-image: "bo_play_pattern.png";
+@contents-bg-image: "random_grey_variations.png";
+@contents-bg-image: "purty_wood.png";
+@contents-bg-image: "cartographer.png";
+@contents-bg-image: "mochaGrunge.png";
+
+// @main-bg-image: ~`"rockywall.png,gplaypattern.png".split(',')[(Math.random()*2)|0]`;
+@main-bg-image: "gradient_squares.png";
+@main-bg-image: "rockywall.png";
+@main-bg-image: "gplaypattern.png";
+@main-bg-image: "white_tiles.png";
+
 
 /*  
  * base
@@ -182,14 +196,17 @@ body {
  * contents
  */
 #contents {
-  background-color: hsl(240, 10%, 95%);
-  
+  background-color: hsl(240, 10%, 80%);
+  background-image: url("../images/@{contents-bg-image}");
+
   #main {
     margin: 0px auto;
     padding: 10px 20px 40px;
     width: @page-width;
     background-color: white;
-    box-shadow: 0px 4px 8px 0px black;
+    background-image: url("../images/@{main-bg-image}");
+
+    box-shadow: 0px 4px 8px 0px #000;
     
     #tm .clearfix;
   }
@@ -204,49 +221,54 @@ body {
 
 .entry {
   margin: 10px 0px 20px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
   line-height: 1.7em;
   color: #222;
   
-  h1 {
-    @font-color: #444;
-    @font-size: 195%;
-    @font-color: hsl(220, 80%, 50%);
-    @text-shadow-color: #aaf;
-    
-    margin: 15px 0em;
-    border-bottom: 2.5px solid hsl(220, 80%, 50%);
-    font-size: @font-size;
-    text-shadow: 2px 2px 4px @text-shadow-color;
-    line-height: 1.3em;
-    color: @font-color;
-    
-    a {
-      color: @font-color;
-    }
-    
-    /*
-    &:before {
-      content: @icon-star;
-      display: inline-block;
-      position: relative;
-      margin-right: -1em;
-      left: -25px;
-      top: -20px;
-      color: yellow;
-      font-size: 15px;
-      font-family: "fontello";
-      text-shadow: 1px 1px 2px #666;
+  header {
+    border-bottom: 1px solid hsla(220, 80%, 50%, 0.2);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 1);
+    margin-bottom: 20px;
+
+    h1 {
+      @font-color: #444;
+      @font-size: 180%;
+      @font-color: hsl(220, 80%, 50%);
+      @text-shadow-color: #aaf;
       
-      #tm .transition(500ms);
-      #tm .rotate(45deg);
-    }
-    */
-    
-    &:hover {
+      margin: 4px 0em;
+      font-size: @font-size;
+      text-shadow: 2px 2px 4px @text-shadow-color;
+      line-height: 1.2em;
+      color: @font-color;
+      
+      a {
+        color: @font-color;
+      }
+      
+      /*
       &:before {
-        color: red;
-        #tm .rotate(360deg);
+        content: @icon-star;
+        display: inline-block;
+        position: relative;
+        margin-right: -1em;
+        left: -25px;
+        top: -20px;
+        color: yellow;
+        font-size: 15px;
+        font-family: "fontello";
+        text-shadow: 1px 1px 2px #666;
+        
+        #tm .transition(500ms);
+        #tm .rotate(45deg);
+      }
+      */
+      
+      &:hover {
+        &:before {
+          color: red;
+          #tm .rotate(360deg);
+        }
       }
     }
   }
@@ -254,12 +276,17 @@ body {
   h2 {
     @font-color: #444;
     
+    clear: both;
     margin: 1.5em 0px 1.0em;
-    border-bottom: solid 1px hsl(20, 80%, 50%); 
+    border-bottom: 1px solid hsla(20, 80%, 50%, 0.2);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 1);
+
+
     font-size: 18px;
     color: hsl(20, 80%, 50%);
     // color: @font-color;
     line-height: 1.5em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
     
     a {
       color: hsl(20, 80%, 50%);
@@ -274,10 +301,10 @@ body {
   }
   
   h3 {
-    margin: 0.5em 0px;
-    margin-bottom: 1em;
-    font-size: 15px;
-    color: hsl(120, 50%, 50%);
+    margin: 40px 0px 2px;
+    font-size: 14px;
+    color: hsl(180, 50%, 50%);
+    text-shadow: 0px 0px 2px #fff;
     line-height: 1.3em;
     
     a {
@@ -287,7 +314,7 @@ body {
     &:before {
       content: @icon-right-circle;
       padding-right: 5px;
-      font-size: 20px;
+      font-size: 16px;
       font-family: "fontello";
     }
   }
@@ -302,21 +329,22 @@ body {
   .blog-info {
     
     text-align: right;
+    font-size: 12px;
     
     ul {
+      margin: 4px;
       list-style:none;
-      margin-bottom: 10px;
       
       li {
         display: inline-block;
-        margin-left: 20px;
+        margin-left: 10px;
         
         a {
           
         }
         
         &:before {
-          font-size: 20px;
+          font-size: 16px;
           padding-right: 5px;
           font-family: "fontello";
           text-shadow: 0px 0px 2px #222;
@@ -455,7 +483,9 @@ body {
       @font-color: hsl(0, 0%, 50%);
       
       margin: 1.5em 0px 1.0em;
-      border-bottom: solid 0px hsl(20, 80%, 50%); 
+      border-bottom: solid 0px hsl(20, 80%, 50%);
+      box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1);
+
       font-size: 15px;
       color: @font-color;
       line-height: 1.5em;
@@ -538,7 +568,12 @@ body {
       }
       
     }
-    
+
+  }
+
+  footer {
+    min-height: 10px;
+    border-bottom: 2px dashed hsla(0, 0%, 40%, 0.5);
   }
   
   .entry-links {
